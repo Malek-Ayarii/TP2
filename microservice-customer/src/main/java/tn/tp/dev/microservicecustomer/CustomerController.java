@@ -1,0 +1,29 @@
+package tn.tp.dev.microservicecustomer;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/customers")
+public class CustomerController {
+
+	private final CustomerRepository repository;
+
+	public CustomerController(CustomerRepository repository) {
+		this.repository = repository;
+	}
+
+	@GetMapping
+	public List<Customer> getAllCustomers() {
+		return repository.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public Customer getCustomerById(@PathVariable Long id) {
+		return repository.findById(id).orElse(null);
+	}
+}

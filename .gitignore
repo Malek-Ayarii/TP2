@@ -1,0 +1,17 @@
+# Maven / Java
+**/target/
+*.class
+
+# IDE
+.idea/
+.vscode/*.code-snippet
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local environment
+.env
+.env.*
+!.env.example
